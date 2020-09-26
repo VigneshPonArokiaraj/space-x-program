@@ -1,44 +1,48 @@
 <div class="container">
-    <div fxLayout="row wrap" fxLayoutGap="20px">
-        <div fxFlex="20" class="filters background-color-white">
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <h3 class="no-margin">Filters</h3>
+    <div class="launch-container">
+        <div class="filters background-color-white">
+            <div class="filter-heading" fxLayout="row wrap" fxLayoutAlign="space-between center">
+                <h2 class="no-margin">Filters</h2>
                 <a class="filter-reset" (click)="onFilterData('')">Reset</a>
             </div>
             <div class="filter-year">
                 <label class="filter-title">Launch Year</label>
                 <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-                    <div *ngFor="let year of filters.launchYear" class="year text-align" fxFlex="45"
+                    <div *ngFor="let year of filters.launch_year.data" class="year text-align" fxFlex="45"
                         (click)="onFilterData(year, 'launch_year')">
-                        <button>{{year}}</button>
+                        <button [ngClass]="{'active': filters.launch_year.selected === year}">{{year}}</button>
                     </div>
                 </div>
             </div>
             <div class="filter-launch">
                 <label class="filter-title">Successful Launch</label>
                 <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-                    <div *ngFor="let launch of filters.successfulLaunch" class="launch text-align" fxFlex="45"
+                    <div *ngFor="let launch of filters.launch_success.data" class="launch text-align" fxFlex="45"
                         (click)="onFilterData(launch, 'launch_success')">
-                        <button>{{launch}}</button>
+                        <button [ngClass]="{'active': filters.launch_success.selected === launch}">{{launch}}</button>
                     </div>
                 </div>
             </div>
             <div class="filter-land">
                 <label class="filter-title">Successful Land</label>
                 <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-                    <div *ngFor="let land of filters.successfulLand" class="land text-align" fxFlex="45"
+                    <div *ngFor="let land of filters.land_success.data" class="land text-align" fxFlex="45"
                         (click)="onFilterData(land, 'land_success')">
-                        <button>{{land}}</button>
+                        <button [ngClass]="{'active': filters.land_success.selected === land}">{{land}}</button>
                     </div>
                 </div>
             </div>
         </div>
-        <div fxFlex="78" class="content">
+        <div class="content content-style">
             <!-- <cdk-virtual-scroll-viewport #cdkSpaceXLaunchViewport itemSize="20"> -->
                 <!-- <div *cdkVirtualFor="let launchData of launchHistory;" class="card card-layout"> -->
+                <div *ngIf="!isLoading && !launchHistory.length" class="no-data-found">
+                    <i>No data found for the selected filter</i>
+                </div>
+                <span *ngIf="isLoading" class="loader"></span>
                 <div *ngFor="let launchData of launchHistory;" class="card card-layout">
                     <div class="event-logo">
-                        <img [src]="launchData.links.mission_patch_small" width="85%" height="200px">
+                        <img [src]="launchData.links.mission_patch_small" width="85%" height="200px" loading="lazy">
                     </div>
                     <div class="mission-name">
                         <b>{{launchData.mission_name}} #{{launchData.flight_number}}</b>
@@ -64,36 +68,3 @@
         </div>
     </div>
 </div>
-
-
-<!-- <div class="container"> -->
-<!-- <div fxLayout="row" fxLayoutAlign="start stretch"> -->
-<!-- Left side filters -->
-<!-- <div fxFlex="25" class="filters background-color-white">
-        <h5>Filters</h5>
-        <div class="filter-year">
-            <label class="filter-title">Launch Year</label>
-            <div *ngFor="let year of filters.launchYear" class="year" (click)="onFilterData(year, 'launch_year')">
-                <button class="btn">{{year}}</button>
-            </div>
-        </div>
-        <div class="filter-launch">
-            <label class="filter-title">Successful Launch</label>
-            <div *ngFor="let launch of filters.successfulLaunch" class="launch"
-                (click)="onFilterData(launch, 'launch_success')">
-                <button class="btn">{{launch}}</button>
-            </div>
-        </div>
-        <div class="filter-land">
-            <label class="filter-title">Successful Land</label>
-            <div *ngFor="let land of filters.successfulLand" class="land" (click)="onFilterData(land, 'land_success')">
-                <button class="btn">{{land}}</button>
-            </div>
-        </div>
-    </div> -->
-
-<!-- Right side data -->
-<!-- <div fxFlex="75" class="content background-color-white">
-
-    </div> -->
-<!-- </div> -->

@@ -8,28 +8,32 @@
   display: table;
 }
 
-[class*="filters"] {
-  float: left;
-  padding: 15px;
-}
-
-.container {
-    margin: 15px;
-    max-width: 1440px !important;
-    font-size: 13px;
-}
-
 .background-color-white {
-    background-color: #ffffff;
+    background-color: #fff;
+}
+
+.margin-left-10 {
+    margin-left: 10px;
+}
+
+.filter-heading {
+    padding: 3px 10px;
 }
 
 .filter-title {
     text-decoration: underline;
     text-align: center;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .text-align {
     text-align: center;
+}
+
+.content-style {
+    height: 85vh;
+    overflow-y: auto;
 }
 
 button {
@@ -74,7 +78,7 @@ ul {
     margin: 0px;
 }
 
-active {
+.active {
     background-color: #7cba01;
 }
 
@@ -83,7 +87,7 @@ active {
 }
 
 .card-layout {
-    margin: 0px 5px 10px 5px;
+    margin: 0px 5px 10px 0px;
     float: left;
     background-color: #fff;
 }
@@ -96,6 +100,8 @@ active {
     text-decoration: underline;
     color: #0491a3;
     cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 .no-margin {
@@ -117,59 +123,209 @@ active {
     padding-top: 10px;
 }
 
-@media only screen and (max-width: 700px) {
-  /* For Mobile: */
+.filter-btn-align {
+    width: 50%;
+    text-align: center;
+}
+
+.no-data-found {
+    text-align: center;
+    margin-top: 25%;
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 40%;
+    left: 55%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@media (min-width: 0px) {
+    /* For Mobile: */
+    .launch-container {
+        flex-flow: row wrap;
+        box-sizing: border-box;
+        display: flex;
+        margin: 15px;
+    }
     .filters {
-        width: 100%;
+        // width: 100%;
+        flex: 1 1 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+
+        .filter-header {
+            place-content: center space-between;
+            align-items: center;
+        }
+
+        .filter-list {
+            place-content: center flex-start;
+            align-items: center;
+        }
     }
+
+    .content-style {
+        height: auto;
+    }
+
     .content {
-        width: 100%;
+       flex: 1 1 100%;
+        box-sizing: border-box;
+        max-width: 100%;
+        margin-top: 15px;
     }
+
     .card {
         width: 100%;
     }
+
+    .container {
+        max-width: 1440px;
+        font-size: 13px;
+    }
 }
 
-@media only screen and (max-width: 1024px), (min-width: 700px) {
+@media only screen and (min-width: 700px) {
   /* For tablets: */
+    .launch-container {
+        flex-flow: row wrap;
+        box-sizing: border-box;
+        display: flex;
+    }
     .filters {
-        width: 35%;
+        flex: 1 1 28%;
+        box-sizing: border-box;
+        max-width: 28%;
+
+        .filter-header {
+            place-content: center space-between;
+            align-items: center;
+        }
+
+        .filter-list {
+            place-content: center flex-start;
+            align-items: center;
+        }
     }
+    
+    .content-style {
+        height: 85vh;
+        overflow-y: auto;
+    }
+
     .content {
-        width: 35%;
+       flex: 1 1 70%;
+        box-sizing: border-box;
+        max-width: 70%;
+        margin-top: 0px;
     }
+
     .card {
-        width: 49%;
+        width: 48%;
+        margin-left: 5px;
+    }
+
+    .container {
+        max-width: 1440px;
+        font-size: 13px;
     }
 }
 
-@media only screen and (max-width: 1440px), (min-width: 1024px) {
-  /* For desktop: */
+@media only screen and (min-width: 1024px) {
+    /* For desktop: */
+    .launch-container {
+        flex-flow: row wrap;
+        box-sizing: border-box;
+        display: flex;
+        margin: auto;
+    }
     .filters {
-        width: 25%;
+        flex: 1 1 23%;
+        box-sizing: border-box;
+        max-width: 23%;
+
+        .filter-header {
+            place-content: center space-between;
+            align-items: center;
+        }
+
+        .filter-list {
+            place-content: center flex-start;
+            align-items: center;
+        }
     }
+    
+    .content-style {
+        height: 85vh;
+        overflow-y: auto;
+    }
+
     .content {
-        width: 75%;
+       flex: 1 1 75%;
+        box-sizing: border-box;
+        max-width: 75%;
+        margin-left: 10px;
     }
+
     .card {
-        width: 24%;
+        width: 23%;
+        margin-left: 5px;
+    }
+
+    .container {
+        max-width: 1440px;
+        font-size: 13px;
     }
 }
 
 @media only screen and (min-width: 1440px) {
   /* For desktop beyond 1440px: */
+    .launch-container {
+        flex-flow: row wrap;
+        box-sizing: border-box;
+        display: flex;
+    }
+
     .filters {
-        width: 25%;
+        flex: 1 1 20%;
+        box-sizing: border-box;
+        max-width: 20%;
+        margin-left: 15px;
+
+        .filter-header {
+            place-content: center space-between;
+            align-items: center;
+        }
+
+        .filter-list {
+            place-content: center flex-start;
+            align-items: center;
+        }
+
     }
+
     .content {
-        width: 75%;
+       flex: 1 1 78%;
+        box-sizing: border-box;
+        max-width: 78%;
+        margin-left: 10px;
     }
-    .card {
-        width: 25%;
-    }
+
     .container {
-        // margin: 5%;
-        justify-content: center;
+        max-width: 1440px;
+        font-size: 13px;
+        margin: auto;
     }
 }
 

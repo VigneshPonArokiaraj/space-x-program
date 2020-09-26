@@ -1,14 +1,7 @@
-import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpaceXService } from '../common/space-x.service';
 import { LaunchHistoryService } from './service/launch-history.service';
-
-class FilterCriteria {
-  'launch_year': number;
-  'launch_success': boolean;
-  'land_success': boolean;
-}
 
 @Component({
   selector: 'app-launch-history',
@@ -17,33 +10,50 @@ class FilterCriteria {
 })
 export class LaunchHistoryComponent implements OnInit {
 
-  launchHistory: any[];
+  launchHistory = [];
   filters: any;
-  filterCriteria = new FilterCriteria();
-
+  filterCriteria = {};
+  isLoading = true;
   constructor(private spaceXService: SpaceXService,
               private launchHistoryService: LaunchHistoryService,
               private router: Router,
               private activatedRoute: ActivatedRoute) { }
 
   getLaunchData(params): void {
+    this.isLoading = true;
     this.spaceXService.getLaunchData(params).subscribe(
       (res: any[]) => {
         this.launchHistory = res;
         this.router.navigate([], {
           queryParams: this.filterCriteria
         });
+        this.isLoading = false;
+      }, (err) => {
+        this.launchHistory = [];
+        this.router.navigate([], {
+          queryParams: this.filterCriteria
+        });
+        this.isLoading = false;
       });
   }
 
   onFilterData(value, field?): void {
     if (field) {
-      this.filterCriteria[field] = value;
+      const fc: any = Object.assign({}, this.filterCriteria);
+      fc[field] = value;
+      this.filterCriteria = fc;
+      this.filters[field].selected = value;
     } else {
-      this.filterCriteria = new FilterCriteria();
+        for (const key in this.filterCriteria) {
+            if (this.filters[key]) {
+                this.filters[key].selected = null;
+            }
+        }
+        this.filterCriteria = {};
     }
     this.getLaunchData(this.filterCriteria);
   }
+
 
   ngOnInit(): void {
     this.filters = this.launchHistoryService.getFilters();
