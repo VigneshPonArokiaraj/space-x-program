@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
 export class LaunchHistoryService {
 
     constructor() { }
@@ -15,11 +13,11 @@ export class LaunchHistoryService {
                 selected: null
             },
             launch_success: {
-                data: [true, false],
+                data: ['true', 'false'],
                 selected: null
             },
             land_success: {
-                data: [true, false],
+                data: ['true', 'false'],
                 selected: null
             }
         };

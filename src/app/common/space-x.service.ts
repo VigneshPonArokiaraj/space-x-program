@@ -1,5 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,7 +11,7 @@ export class SpaceXService {
   readonly baseUrl: string = environment.baseUrl;
   constructor(private http: HttpClient) { }
 
-  getLaunchData(params: any) {
+  getLaunchData(params: any): Observable<any> {
     const queryParams = new HttpParams({ fromObject: params });
     return this.http.get(this.baseUrl + '?limit=100', { params: queryParams });
   }

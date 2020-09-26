@@ -134,15 +134,15 @@ ul {
 }
 
 .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
     border-radius: 50%;
-    width: 120px;
-    height: 120px;
+    width: 80px;
+    height: 80px;
+    -webkit-animation: spin 2s linear infinite;
     animation: spin 2s linear infinite;
     position: absolute;
-    top: 40%;
-    left: 55%;
+    z-index: 999;
 }
 
 @keyframes spin {
@@ -194,6 +194,16 @@ ul {
         max-width: 1440px;
         font-size: 13px;
     }
+
+    .loader-align {
+        top: 36%;
+        left: 36%;
+    }
+
+    .cdk-virtual-scroll-viewport {
+        height: 85vh;
+        scrollbar-width: thin;
+    }
 }
 
 @media only screen and (min-width: 700px) {
@@ -202,11 +212,13 @@ ul {
         flex-flow: row wrap;
         box-sizing: border-box;
         display: flex;
+        margin: auto;
     }
     .filters {
         flex: 1 1 28%;
         box-sizing: border-box;
         max-width: 28%;
+        margin-left: 10px;
 
         .filter-header {
             place-content: center space-between;
@@ -219,9 +231,9 @@ ul {
         }
     }
     
-    .content-style {
+    .cdk-virtual-scroll-viewport {
         height: 85vh;
-        overflow-y: auto;
+        scrollbar-width: thin;
     }
 
     .content {
@@ -239,6 +251,11 @@ ul {
     .container {
         max-width: 1440px;
         font-size: 13px;
+    }
+
+    .loader-align {
+        top: 40%;
+        left: 58%;
     }
 }
 
@@ -265,10 +282,10 @@ ul {
             align-items: center;
         }
     }
-    
-    .content-style {
+
+    .cdk-virtual-scroll-viewport {
         height: 85vh;
-        overflow-y: auto;
+        scrollbar-width: thin;
     }
 
     .content {
@@ -286,6 +303,11 @@ ul {
     .container {
         max-width: 1440px;
         font-size: 13px;
+    }
+
+    .loader-align {
+        top: 42%;
+        left: 57%;
     }
 }
 
@@ -321,11 +343,21 @@ ul {
         max-width: 78%;
         margin-left: 10px;
     }
+    
+    .cdk-virtual-scroll-viewport {
+        height: 85vh;
+        scrollbar-width: thin;
+    }
 
     .container {
         max-width: 1440px;
         font-size: 13px;
         margin: auto;
+    }
+
+    .loader-align {
+        top: 42%;
+        left: 56%;
     }
 }
 

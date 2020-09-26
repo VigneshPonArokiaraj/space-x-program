@@ -34,13 +34,13 @@
             </div>
         </div>
         <div class="content content-style">
-            <!-- <cdk-virtual-scroll-viewport #cdkSpaceXLaunchViewport itemSize="20"> -->
-                <!-- <div *cdkVirtualFor="let launchData of launchHistory;" class="card card-layout"> -->
-                <div *ngIf="!isLoading && !launchHistory.length" class="no-data-found">
-                    <i>No data found for the selected filter</i>
-                </div>
-                <span *ngIf="isLoading" class="loader"></span>
-                <div *ngFor="let launchData of launchHistory;" class="card card-layout">
+            <div *ngIf="!isLoading && !launchHistory.length" class="no-data-found">
+                <i>No data found for the selected filter</i>
+            </div>
+            <span *ngIf="isLoading" class="loader loader-align"></span>
+            <cdk-virtual-scroll-viewport #cdkSpaceXLaunchViewport itemSize="100">
+                <div *cdkVirtualFor="let launchData of launchHistory;" class="card card-layout">
+                    <!-- <div *ngFor="let launchData of launchHistory;" class="card card-layout"> -->
                     <div class="event-logo">
                         <img [src]="launchData.links.mission_patch_small" width="85%" height="200px" loading="lazy">
                     </div>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                 </div>
-            <!-- </cdk-virtual-scroll-viewport> -->
+            </cdk-virtual-scroll-viewport>
         </div>
     </div>
 </div>
