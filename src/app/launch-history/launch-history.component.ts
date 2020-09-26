@@ -5,9 +5,9 @@ import { SpaceXService } from '../common/space-x.service';
 import { LaunchHistoryService } from './service/launch-history.service';
 
 class FilterCriteria {
-  launch_year: number;
-  launch_success: boolean;
-  land_success: boolean;
+  'launch_year': number;
+  'launch_success': boolean;
+  'land_success': boolean;
 }
 
 @Component({
@@ -17,22 +17,22 @@ class FilterCriteria {
 })
 export class LaunchHistoryComponent implements OnInit {
 
-  launchHistory: any[] ;
+  launchHistory: any[];
   filters: any;
   filterCriteria = new FilterCriteria();
 
   constructor(private spaceXService: SpaceXService,
-             private launchHistoryService: LaunchHistoryService,
-             private router: Router,
-             private activatedRoute: ActivatedRoute) { }
+              private launchHistoryService: LaunchHistoryService,
+              private router: Router,
+              private activatedRoute: ActivatedRoute) { }
 
   getLaunchData(params): void {
     this.spaceXService.getLaunchData(params).subscribe(
       (res: any[]) => {
         this.launchHistory = res;
-          this.router.navigate([], {
-            queryParams: this.filterCriteria
-          });
+        this.router.navigate([], {
+          queryParams: this.filterCriteria
+        });
       });
   }
 

@@ -10,7 +10,7 @@ export class SpaceXService {
   constructor(private http: HttpClient) { }
 
   getLaunchData(params: any) {
-    let queryParams = new HttpParams({ fromObject: params});
+    const queryParams = new HttpParams({ fromObject: params });
     return this.http.get(this.baseUrl + '?limit=100', { params: queryParams });
   }
 }
