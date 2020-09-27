@@ -37,6 +37,8 @@ You can view a live demo over at https://space-x-launch-history.herokuapp.com/
 	* Rendering the Mission Images dynamically and lazy load them only when visible on the View
 	* Server side data rendering for Filters
 	
+Lighthouse report is available in the path "spaceX-lighthouse-report.PNG".
+	
 ## Dev Guide Documentation - CompoDoc
 
 We have used Compodoc to generate the documentation for the Project. 
