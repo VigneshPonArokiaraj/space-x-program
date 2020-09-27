@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     /**
-     * Setting up title
+     * Application title
      */
     title = 'SpaceX Launch Programs';
     /**
