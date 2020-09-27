@@ -1,4 +1,5 @@
 <div class="container">
+    <h1 class="title">SpaceX Launch Programs</h1>
     <div class="launch-container">
         <div class="filters background-color-white">
             <div class="filter-heading" fxLayout="row wrap" fxLayoutAlign="space-between center">
@@ -33,11 +34,13 @@
                 </div>
             </div>
         </div>
+        <div *ngIf="isLoading" class="loader-backdrop">
+            <span class="loader loader-align"></span>
+        </div>
         <div class="content content-style">
             <div *ngIf="!isLoading && !launchHistory.length" class="no-data-found">
                 <i>No data found for the selected filter</i>
             </div>
-            <span *ngIf="isLoading" class="loader loader-align"></span>
             <cdk-virtual-scroll-viewport #cdkSpaceXLaunchViewport itemSize="100">
                 <div *cdkVirtualFor="let launchData of launchHistory;" class="card card-layout">
                     <!-- <div *ngFor="let launchData of launchHistory;" class="card card-layout"> -->

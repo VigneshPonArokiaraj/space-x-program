@@ -2,6 +2,9 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+/**
+ * setting up app configs
+ */
 export const environment = {
   production: false,
   baseUrl: 'https://api.spaceXdata.com/v3/launches'
