@@ -11,8 +11,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
-  providers: [
-    // AuthGuard
-  ]
+  providers: []
 })
 export class AppRoutingModule { }

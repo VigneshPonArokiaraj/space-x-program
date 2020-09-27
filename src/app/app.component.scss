@@ -9,3 +9,17 @@ footer {
     height: 20px;
     padding-top: 7px;
 }
+
+.title {
+    padding: 2px 12px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin: auto;
+}
+
+@media only screen and (min-width: 1440px) {
+    .title {
+        margin: auto;
+        max-width: 1440px;
+    }
+}

@@ -94,11 +94,22 @@ ul {
 
 .event-values {
     color: #565c9a;
+    padding-left: 7px;
 }
 
 .no-data-found {
     text-align: center;
     margin-top: 25%;
+}
+
+.event-label {
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.event-container {
+    display: flex;
+    padding-top: 10px;
 }
 
 .loader {
@@ -135,12 +146,30 @@ ul {
     margin: auto;
 }
 
-@media (min-width: 0px) {
-    /* For Mobile: */
-    .launch-container {
+ .launch-container {
         flex-flow: row wrap;
         box-sizing: border-box;
         display: flex;
+ }
+
+ .filter-header {
+    place-content: center space-between;
+    align-items: center;
+}
+
+.filter-list {
+    place-content: center flex-start;
+    align-items: center;
+}
+
+.container {
+    max-width: 1440px;
+    font-size: 13px;
+}
+
+@media (min-width: 0px) {
+    /* For Mobile: */
+    .launch-container {
         margin: 15px;
     }
     .filters {
@@ -148,16 +177,6 @@ ul {
         flex: 1 1 100%;
         box-sizing: border-box;
         max-width: 100%;
-
-        .filter-header {
-            place-content: center space-between;
-            align-items: center;
-        }
-
-        .filter-list {
-            place-content: center flex-start;
-            align-items: center;
-        }
     }
 
     .content {
@@ -171,14 +190,9 @@ ul {
         width: 100%;
     }
 
-    .container {
-        max-width: 1440px;
-        font-size: 13px;
-    }
-
     .loader-align {
         top: 25%;
-        left: 25%;
+        left: 27%;
     }
 
     .cdk-virtual-scroll-viewport {
@@ -190,9 +204,6 @@ ul {
 @media only screen and (min-width: 700px) {
   /* For tablets: */
     .launch-container {
-        flex-flow: row wrap;
-        box-sizing: border-box;
-        display: flex;
         margin: auto;
     }
     .filters {
@@ -200,16 +211,6 @@ ul {
         box-sizing: border-box;
         max-width: 28%;
         margin-left: 10px;
-
-        .filter-header {
-            place-content: center space-between;
-            align-items: center;
-        }
-
-        .filter-list {
-            place-content: center flex-start;
-            align-items: center;
-        }
     }
     
     .cdk-virtual-scroll-viewport {
@@ -229,11 +230,6 @@ ul {
         margin-left: 5px;
     }
 
-    .container {
-        max-width: 1440px;
-        font-size: 13px;
-    }
-
     .loader-align {
         top: 32%;
         left: 43%;
@@ -243,25 +239,12 @@ ul {
 @media only screen and (min-width: 1024px) {
     /* For desktop: */
     .launch-container {
-        flex-flow: row wrap;
-        box-sizing: border-box;
-        display: flex;
         margin: auto;
     }
     .filters {
         flex: 1 1 23%;
         box-sizing: border-box;
         max-width: 23%;
-
-        .filter-header {
-            place-content: center space-between;
-            align-items: center;
-        }
-
-        .filter-list {
-            place-content: center flex-start;
-            align-items: center;
-        }
     }
 
     .cdk-virtual-scroll-viewport {
@@ -281,11 +264,6 @@ ul {
         margin-left: 5px;
     }
 
-    .container {
-        max-width: 1440px;
-        font-size: 13px;
-    }
-
     .loader-align {
         top: 27%;
         left: 45%;
@@ -294,28 +272,11 @@ ul {
 
 @media only screen and (min-width: 1440px) {
   /* For desktop beyond 1440px: */
-    .launch-container {
-        flex-flow: row wrap;
-        box-sizing: border-box;
-        display: flex;
-    }
-
     .filters {
         flex: 1 1 20%;
         box-sizing: border-box;
         max-width: 20%;
         margin-left: 15px;
-
-        .filter-header {
-            place-content: center space-between;
-            align-items: center;
-        }
-
-        .filter-list {
-            place-content: center flex-start;
-            align-items: center;
-        }
-
     }
 
     .content {
@@ -331,8 +292,6 @@ ul {
     }
 
     .container {
-        max-width: 1440px;
-        font-size: 13px;
         margin: auto;
     }
 
