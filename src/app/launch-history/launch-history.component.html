@@ -4,30 +4,30 @@
             <h2 class="no-margin">Filters</h2>
             <a class="filter-reset" (click)="onFilterData('')">Reset</a>
         </div>
-        <div class="filter-year">
+        <div class="padding-top-10">
             <label class="filter-title">Launch Year</label>
-            <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
+            <div class="padding-top-10" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
                 <div *ngFor="let year of filters.launch_year.data" class="year text-align" fxFlex="45"
                     (click)="onFilterData(year, 'launch_year')">
                     <button [ngClass]="{'active': filters.launch_year.selected === year}">{{year}}</button>
                 </div>
             </div>
         </div>
-        <div class="filter-launch">
+        <div class="padding-top-10">
             <label class="filter-title">Successful Launch</label>
-            <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-                <div *ngFor="let launch of filters.launch_success.data" class="launch text-align" fxFlex="45"
-                    (click)="onFilterData(launch, 'launch_success')">
-                    <button [ngClass]="{'active': filters.launch_success.selected === launch}">{{launch}}</button>
+            <div class="padding-top-10" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
+                <div class="filter-btn-sec text-align">
+                    <button class="filter-btn" [ngClass]="{'active': filters.launch_success.selected === 'true'}" (click)="onFilterData('true', 'launch_success')">True</button>
+                    <button class="filter-btn" [ngClass]="{'active': filters.launch_success.selected === 'false'}" (click)="onFilterData('false', 'launch_success')">False</button>
                 </div>
             </div>
         </div>
-        <div class="filter-land">
+        <div class="padding-top-10">
             <label class="filter-title">Successful Land</label>
-            <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
-                <div *ngFor="let land of filters.land_success.data" class="land text-align" fxFlex="45"
-                    (click)="onFilterData(land, 'land_success')">
-                    <button [ngClass]="{'active': filters.land_success.selected === land}">{{land}}</button>
+            <div class="padding-top-10" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
+                <div class="filter-btn-sec text-align">
+                    <button class="filter-btn" [ngClass]="{'active': filters.land_success.selected === 'true'}" (click)="onFilterData('true', 'launch_success')">True</button>
+                    <button class="filter-btn" [ngClass]="{'active': filters.land_success.selected === 'false'}" (click)="onFilterData('false', 'launch_success')">False</button>
                 </div>
             </div>
         </div>
@@ -39,32 +39,38 @@
         <div *ngIf="!isLoading && !launchHistory.length" class="no-data-found">
             <i>No data found for the selected filter</i>
         </div>
-        <cdk-virtual-scroll-viewport #cdkSpaceXLaunchViewport itemSize="100">
-            <div *cdkVirtualFor="let launchData of launchHistory;" class="card card-layout">
-                <!-- <div *ngFor="let launchData of launchHistory;" class="card card-layout"> -->
-                <div class="event-logo">
-                    <img [src]="launchData.links.mission_patch_small" width="85%" height="200px" loading="lazy">
-                </div>
-                <div class="mission-name">
-                    <b>{{launchData.mission_name}} #{{launchData.flight_number}}</b>
-                </div>
-                <div class="event-content">
-                    <div class="mission-id">
-                        <b>Mission Ids: </b>
-                        <ul class="mission-list">
-                            <li *ngFor="let missionId of launchData.mission_id"><span
-                                    class="event-values">{{missionId}}</span></li>
-                        </ul>
+        <div class="lunch-data-container">
+            <div *ngFor="let launchData of launchHistory;" class="card-container">
+                <div class="card">
+                    <div class="event-logo">
+                        <img [src]="launchData.links.mission_patch_small" width="95%" height="45%" loading="lazy">
                     </div>
-                    <div class="event-container">
-                        <b class="event-label">Successful Launch: </b> <span class="event-values">{{launchData.launch_success}}</span>
+                    <div class="mission-name">
+                        <b>{{launchData.mission_name}} #{{launchData.flight_number}}</b>
                     </div>
-                    <div class="event-container">
-                        <b class="event-label">Successful Landing: </b> <span
-                            class="event-values">{{launchData.rocket.first_stage.cores[0].land_success}}</span>
+                    <div class="event-content">
+                        <div class="mission-id">
+                            <b>Mission Ids: </b>
+                            <ul class="mission-list">
+                                <li *ngFor="let missionId of launchData.mission_id"><span
+                                        class="event-values">{{missionId}}</span></li>
+                            </ul>
+                        </div>
+                        <div class="event-container">
+                            <b class="event-label">Launch Year: </b> <span
+                                class="event-values">{{launchData.launch_year}}</span>
+                        </div>
+                        <div class="event-container">
+                            <b class="event-label">Successful Launch: </b> <span
+                                class="event-values">{{launchData.launch_success}}</span>
+                        </div>
+                        <div class="event-container">
+                            <b class="event-label">Successful Landing: </b> <span
+                                class="event-values">{{launchData.rocket.first_stage.cores[0].land_success}}</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </cdk-virtual-scroll-viewport>
+        </div>
     </div>
 </div>

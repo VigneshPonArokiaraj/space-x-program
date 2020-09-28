@@ -43,11 +43,9 @@ export class LaunchHistoryService {
                 selected: null
             },
             launch_success: {
-                data: ['true', 'false'],
                 selected: null
             },
             land_success: {
-                data: ['true', 'false'],
                 selected: null
             }
         };

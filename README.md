@@ -33,7 +33,6 @@ You can view a live demo over at https://space-x-launch-history.herokuapp.com/
 
 ## Performance Factors
 
-	* Lazy loading of the Mission details rendered in the View to load only minimal records in DOM
 	* Rendering the Mission Images dynamically and lazy load them only when visible on the View
 	* Server side data rendering for Filters
 	
