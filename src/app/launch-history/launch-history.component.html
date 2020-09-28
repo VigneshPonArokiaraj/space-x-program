@@ -18,7 +18,7 @@
             <div class="padding-top-10" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
                 <div class="filter-btn-sec text-align">
                     <button class="filter-btn" [ngClass]="{'active': filters.launch_success.selected === 'true'}" (click)="onFilterData('true', 'launch_success')">True</button>
-                    <button class="filter-btn" [ngClass]="{'active': filters.launch_success.selected === 'false'}" (click)="onFilterData('false', 'launch_success')">False</button>
+                    <button class="filter-btn filter-btn-false" [ngClass]="{'active': filters.launch_success.selected === 'false'}" (click)="onFilterData('false', 'launch_success')">False</button>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
             <div class="padding-top-10" fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="start center">
                 <div class="filter-btn-sec text-align">
                     <button class="filter-btn" [ngClass]="{'active': filters.land_success.selected === 'true'}" (click)="onFilterData('true', 'launch_success')">True</button>
-                    <button class="filter-btn" [ngClass]="{'active': filters.land_success.selected === 'false'}" (click)="onFilterData('false', 'launch_success')">False</button>
+                    <button class="filter-btn filter-btn-false" [ngClass]="{'active': filters.land_success.selected === 'false'}" (click)="onFilterData('false', 'launch_success')">False</button>
                 </div>
             </div>
         </div>

@@ -32,8 +32,9 @@ button {
 }
 
 .filter-btn {
-    width: 45%;
+    width: 33%;
     float: left;
+    margin-left: 20px;
 }
 
 .filter-btn-sec {
@@ -189,6 +190,11 @@ ul {
 .filters {
     height: 100%;
     padding: 10px 0px;
+}
+
+.filter-btn-false {
+    margin-right: 42px;
+    float: right;
 }
 
 @media (min-width: 0px) {
